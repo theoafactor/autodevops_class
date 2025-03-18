@@ -1,6 +1,10 @@
 #!/bin/bash
 
-DockerfileName="Dockerfile"
+source .env
+
+echo $DOCKERHUB_USERNAME
+
+DockerfileName="$DOCKERFILENAME"
 
 if [[ -f $DockerfileName ]]
 then
@@ -20,6 +24,18 @@ fi
 echo "COPY . /usr/share/nginx/html" >> $DockerfileName
 echo "WORKDIR /usr/share/nginx/html" >> $DockerfileName
 
-sudo docker build -t simpleweb:1 .
+sudo docker build -t $APP_NAME:$BUILD_VERSION .
 
-sudo docker run -d -p 1212:80 simpleweb:1 
+## remove previously running Docker container
+echo "Stopping any previuosly running container ... Please wait..."
+sleep 2
+sudo docker stop $APP_NAME 
+
+echo "Running basic cleanups ..."
+sleep 2
+sudo docker rm $APP_NAME
+
+echo "Running your container ... ---------------------------"
+sudo docker run -d -p $APP_PORT:80 --name $APP_NAME $APP_NAME:$BUILD_VERSION 
+
+echo "Application deployed successfully!"
