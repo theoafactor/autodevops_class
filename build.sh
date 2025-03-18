@@ -6,7 +6,6 @@ if [[ -f $DockerfileName ]]
 then
     echo "Dockerfile exists already"
     echo "FROM nginx:alpine" > $DockerfileName
-    echo "RUN ls" >> $DockerfileName 
 else 
     ## file does not exist, create it
     echo "File does not exist..."
@@ -15,7 +14,7 @@ else
     touch $DockerfileName
     echo "$DockerfileName file created ..."
     
-    echo "FROM nginx:alpine" >> $DockerfileName
-    echo "RUN ls" >> $DockerfileName    
+    echo "FROM nginx:alpine" >> $DockerfileName    
 fi
 
+echo "RUN ls" >> $DockerfileName
