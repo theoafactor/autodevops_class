@@ -17,4 +17,9 @@ else
     echo "FROM nginx:alpine" >> $DockerfileName    
 fi
 
-echo "RUN ls" >> $DockerfileName
+echo "COPY . /usr/share/nginx/html" >> $DockerfileName
+echo "WORKDIR /usr/share/nginx/html" >> $DockerfileName
+
+sudo docker build -t simpleweb:1 .
+
+sudo docker run -d -p 1212:80 simpleweb:1 
