@@ -1,10 +1,10 @@
 #!/bin/bash
 
-source .env
+source /home/astronaut/teachings/automate_devops/.env
 
 echo $DOCKERHUB_USERNAME
 
-DockerfileName="$DOCKERFILENAME"
+DockerfileName="/home/astronaut/teachings/automate_devops/$DOCKERFILENAME"
 
 if [[ -f $DockerfileName ]]
 then
@@ -39,3 +39,13 @@ echo "Running your container ... ---------------------------"
 sudo docker run -d -p $APP_PORT:80 --name $APP_NAME $APP_NAME:$BUILD_VERSION 
 
 echo "Application deployed successfully!"
+
+## Tag the image
+sudo docker tag $APP_NAME:$BUILD_VERSION $DOCKERHUB_USERNAME/$APP_NAME:$BUILD_VERSION
+
+## Login to Docker
+sudo docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+
+### Push the image
+sudo docker push $DOCKERHUB_USERNAME/$APP_NAME:$BUILD_VERSION
+
