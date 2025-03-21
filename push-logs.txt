@@ -459,3 +459,14 @@ Changes not staged for commit:
 	modified:   push-logs.txt
 
 no changes added to commit (use "git add" and/or "git commit -a")
+[master 9b5a96f] Updated project
+ 2 files changed, 17 insertions(+)
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   Dockerfile
+	modified:   logs.txt
+	modified:   push-logs.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
