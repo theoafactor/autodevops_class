@@ -918,3 +918,9 @@ Running your container ... ---------------------------
 Application deployed successfully!
 theoafactor
 Dockerfile exists already
+Stopping any previuosly running container ... Please wait...
+Running basic cleanups ...
+Running your container ... ---------------------------
+Application deployed successfully!
+theoafactor
+Dockerfile exists already
