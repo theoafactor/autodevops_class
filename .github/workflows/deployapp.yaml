@@ -23,15 +23,15 @@ jobs:
 
         - name: "Build Docker image"
           run: |
-            docker build -t theoafactor/sampleapp123 .
+            docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/sampleapp123 .
 
         - name: "Login to DockerHub"
           run: | 
-            docker login -u theoafactor -p ${{ secrets.DOCKER_PASSWORD }}
+            docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
 
         - name: "Push to DockerHub"
           run: | 
-            docker push theoafactor/sampleapp123
+            docker push ${{ secrets.DOCKERHUB_USERNAME }}/sampleapp123
 
         
