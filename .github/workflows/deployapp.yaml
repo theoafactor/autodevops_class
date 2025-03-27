@@ -10,4 +10,13 @@ jobs:
         - name: "say hello"
           run: |
             echo "Hello everyone!"
-        
+        - name: "List directory 1"
+          run: |
+            ls -la
+
+        - name: Checkout from .github directory
+          uses: actions/checkout@v4
+          
+        - name: "List directory 2"
+          run: |
+            ls -la
