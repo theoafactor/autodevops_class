@@ -1,0 +1,13 @@
+name: Deploy a simple application 
+on: 
+    push:
+        branches:
+        - master
+jobs:
+    deploy_application_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: "say hello"
+          run: |
+            echo "Hello everyone!"
+        
