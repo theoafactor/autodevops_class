@@ -20,3 +20,9 @@ jobs:
         - name: "List directory 2"
           run: |
             ls -la
+
+        - name: "Build Docker image"
+          run: |
+            docker build -t sampleapp123 .
+
+        
