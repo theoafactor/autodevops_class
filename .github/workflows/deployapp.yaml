@@ -49,7 +49,7 @@ jobs:
         - name: Build, tag 2, and push docker image to Amazon ECR
           env:
             REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-            REPOSITORY: cyclosamplerepo
+            REPOSITORY: cyclosamplerepo2
             IMAGE_TAG: sampleapp124
           run: |
             docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
