@@ -19,7 +19,7 @@ jobs:
 
         - name: Create a new directory
           run: |
-            mkdir testdir
+            mkdir testdir anotherdir
           
         - name: "List directory 2"
           run: |
