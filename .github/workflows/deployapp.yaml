@@ -37,9 +37,9 @@ jobs:
           with:
               repositoryName: whateverregistry
 
-        - name: "Build Docker image"
-          run: |
-            docker build -t sampleapp124 .
+        # - name: "Build Docker image"
+        #   run: |
+        #     docker build -t sampleapp124 .
 
         # - name: "Login to DockerHub"
         #   uses: docker/login-action@v3
@@ -55,13 +55,13 @@ jobs:
         #   run: | 
         #     docker push ${{ secrets.DOCKERHUB_USERNAME }}/sampleapp124
 
-        - name: Build, tag 2, and push docker image to Amazon ECR
-          env:
-            REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-            REPOSITORY: whateverregistry
-            IMAGE_TAG: sampleapp124
-          run: |
-            docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
-            docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+        # - name: Build, tag 2, and push docker image to Amazon ECR
+        #   env:
+        #     REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        #     REPOSITORY: whateverregistry
+        #     IMAGE_TAG: sampleapp124
+        #   run: |
+        #     docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+        #     docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
         
