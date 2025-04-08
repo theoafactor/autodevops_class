@@ -7,7 +7,7 @@ jobs:
     deploy_application_job:
         runs-on: self-hosted
         steps:
-        - name: "say hello"
+        - name: "say hello again"
           run: |
             echo "Hello everyone!"
         - name: "List directory 1"
